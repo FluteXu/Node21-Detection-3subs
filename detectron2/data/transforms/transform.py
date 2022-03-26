@@ -207,7 +207,9 @@ class RotationTransform(Transform):
             return img
         assert img.shape[:2] == (self.h, self.w)
         interp = interp if interp is not None else self.interp
-        return cv2.warpAffine(img, self.rm_image, (self.bound_w, self.bound_h), flags=interp)
+        img_rt = cv2.warpAffine(img, self.rm_image, (self.bound_w, self.bound_h), flags=interp)
+        img_rt = np.expand_dims(img_rt, -1).astype(img_rt.dtype)
+        return img_rt
 
     def apply_coords(self, coords):
         """
@@ -333,7 +335,6 @@ class GaussianBlurTransform(Transform):
 
     def apply_segmentation(self, segmentation):
         return segmentation
-
 
 def HFlip_rotated_box(transform, rotated_boxes):
     """

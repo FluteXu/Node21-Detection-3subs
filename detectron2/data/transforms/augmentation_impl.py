@@ -305,6 +305,7 @@ class RandomRotation(Augmentation):
             return NoOpTransform()
 
 
+
 class FixedSizeCrop(Augmentation):
     """
     If `crop_size` is smaller than the input image size, then it uses a random crop of
@@ -621,7 +622,7 @@ class RandomLighting(Augmentation):
 
 
 class GaussianBlur(Augmentation):
-    def __init__(self, sigma_range, kernel_size=(5, 5), prob=0.3):
+    def __init__(self, sigma_range, kernel_size=(5, 5), prob=0.25):
         """
         Args:
             intensity_min (float): Minimum augmentation (1 preserves input).

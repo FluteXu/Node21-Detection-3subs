@@ -7,3 +7,4 @@ MedPy
 pypng
 pandas
 h5py
+opencv-python-headless

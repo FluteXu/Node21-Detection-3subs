@@ -1,6 +1,7 @@
 _BASE_: "../Base-RCNN-FPN.yaml"
 MODEL:
-  WEIGHTS: "detectron2://ImageNetPretrained/MSRA/R-50.pkl"
+#  WEIGHTS: "detectron2://ImageNetPretrained/MSRA/R-50.pkl"
+  WEIGHTS: "./pretrain_weights/pretrain_deepLesion_luna16.pth"
   MASK_ON: False
   RESNETS:
     DEPTH: 50
@@ -29,7 +30,7 @@ INPUT:
 #  MAX_SIZE_TRAIN: 1536
 #  MIN_SIZE_TEST: 512
 #  MAX_SIZE_TEST: 1536
-  RESIZE_SCALE_RANGE_TRAIN: (0.8, 1, 1.2, 1.4, 1.6, 1.8, 2)
+  RESIZE_SCALE_RANGE_TRAIN: (0.8, 1, 1.2, 1.4, 1.6)
   RESIZE_SCALE_RANGE_TEST: (0.8, 1, 1.2)
   RANDOM_ROTATION_ANGLES: (0, 180)
   GAUSSIAN_BLUR_RANDOM_SIGMA_RANGE: (.1, 3)

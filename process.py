@@ -65,7 +65,6 @@ class Maskrcnnnodecontainer(DetectionAlgorithm):
         self.args_test = args
 
     def train_launcher_maskr(self, args):
-        NODE_2021(self.input_path, self.coco_json_output_path)
         launch(
             train_main_maskr,
             args.num_gpus,
@@ -76,7 +75,6 @@ class Maskrcnnnodecontainer(DetectionAlgorithm):
         )
 
     def train_launcher_retina(self, args):
-        NODE_2021(self.input_path, self.coco_json_output_path)
         launch(
             train_main_retina,
             args.num_gpus,
